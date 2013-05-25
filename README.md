@@ -1,15 +1,15 @@
-ALEXReaderWriterAccess
-======================
+ALEXConcurrentAccessQueue
+=========================
 
-An Objective-C category on NSObject that allows concurrent access to a mutable object from different queues. It adds methods like `-alex_performReadBlock:` and `alex_performWriteBlock:` that are used the same way to access the object as the similar methods on NSManagedObjectContexts of a queue concurrency type.
+An Objective-C object encapsulating a concurrent dispatch queue with methods that implement the concurrent reader writer access pattern using dispatch_barrier_async.
 
 API
 ---
 
-	- (void)alex_performReadBlock:(dispatch_block_t)readBlock;
-	- (void)alex_performReadBlockAndWait:(dispatch_block_t)readBlock;
-	- (void)alex_performWriteBlock:(dispatch_block_t)writeBlock;
-	- (void)alex_performWriteBlockAndWait:(dispatch_block_t)writeBlock;
+	- (void)performReadBlock:(dispatch_block_t)readBlock;
+	- (void)performReadBlockAndWait:(dispatch_block_t)readBlock;
+	- (void)performWriteBlock:(dispatch_block_t)writeBlock;
+	- (void)performWriteBlockAndWait:(dispatch_block_t)writeBlock;
 
 License
 -------
